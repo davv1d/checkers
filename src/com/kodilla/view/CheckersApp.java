@@ -60,7 +60,7 @@ public class CheckersApp extends Application {
         pawn.setOnMouseReleased(event -> {
             int newX = (int) event.getSceneX() / FIELD_SIZE;
             int newY = (int) event.getSceneY() / FIELD_SIZE;
-            game.tryMove(newX, newY, (Pawn) event.getSource());
+            game.tryMove(newX, newY, (Pawn) event.getSource(), board);
             //i don't know
             pawnGroup.getChildren().removeAll(pawnGroup.getChildren().stream()
                     .filter(node -> !node.isVisible())

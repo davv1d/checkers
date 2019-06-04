@@ -98,4 +98,11 @@ public class Pawn extends ImageView {
                 " isQueen= " + isQueen +
                 '}';
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Pawn pawn = new Pawn(this.url, this.type, lastPositionX, lastPositionY);
+        pawn.setQueen(this.isQueen);
+        return pawn;
+    }
 }
