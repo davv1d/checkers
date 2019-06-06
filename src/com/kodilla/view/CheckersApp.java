@@ -1,6 +1,9 @@
 package com.kodilla.view;
 
-import com.kodilla.myEnum.PawnType;
+import com.kodilla.constantly.PawnType;
+import com.kodilla.oldElements.Field;
+import com.kodilla.oldElements.Game;
+import com.kodilla.oldElements.Pawn;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -8,8 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.util.stream.Collectors;
 
 public class CheckersApp extends Application {
 
@@ -62,9 +63,13 @@ public class CheckersApp extends Application {
             int newY = (int) event.getSceneY() / FIELD_SIZE;
             game.tryMove(newX, newY, (Pawn) event.getSource(), board);
             //i don't know
-            pawnGroup.getChildren().removeAll(pawnGroup.getChildren().stream()
-                    .filter(node -> !node.isVisible())
-                    .collect(Collectors.toSet()));
+//            Set<Node> collect = pawnGroup.getChildren().stream()
+//                    .filter(node -> !node.isVisible())
+//                    .collect(Collectors.toSet());
+//            if(!pawnGroup.getChildren().containsAll(collect)){
+//                System.out.println(false);
+//            }
+//            pawnGroup.getChildren().removeAll(collect);
         });
         return pawn;
     }
@@ -72,7 +77,7 @@ public class CheckersApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Scene scene = new Scene(createContent());
-        game = new Game(board, this);
+        game = new Game(this);
         primaryStage.setTitle("Checkers");
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();

@@ -1,6 +1,0 @@
-package com.kodilla.computer;
-
-public enum ComputerMove {
-    CALCULATE_SIMPLE_MOVE, CALCULATE_LAST_MOVE_QUEEN, MUST_DO, CALCULATE_ONE_PAWN_MANY_MOVE, CALCULATE_MANY_PAWN_MANY_MOVE;
-
-}
