@@ -1,17 +1,17 @@
 package com.kodilla.computerTest;
 
-import com.kodilla.movementCalculation.PawnAndPositions;
+import com.kodilla.movementCalculation.MoveOfPawn;
 import com.kodilla.oldElements.Position;
 import com.kodilla.oldElements.Field;
 
 public class MoveBoardAndPoint {
-    private PawnAndPositions pawnAndPositions;
+    private MoveOfPawn moveOfPawn;
     private Field[][] board;
     private int point;
     private Position position;
 
-    public MoveBoardAndPoint(PawnAndPositions pawnAndPositions, Field[][] board, int point, Position position) {
-        this.pawnAndPositions = pawnAndPositions;
+    public MoveBoardAndPoint(MoveOfPawn moveOfPawn, Field[][] board, int point, Position position) {
+        this.moveOfPawn = moveOfPawn;
         this.board = board;
         this.point = point;
         this.position = position;
@@ -21,8 +21,8 @@ public class MoveBoardAndPoint {
         return position;
     }
 
-    public PawnAndPositions getPawnAndPositions() {
-        return pawnAndPositions;
+    public MoveOfPawn getMoveOfPawn() {
+        return moveOfPawn;
     }
 
     public Field[][] getBoard() {
@@ -33,8 +33,8 @@ public class MoveBoardAndPoint {
         return point;
     }
 
-    public void setPawnAndPositions(PawnAndPositions pawnAndPositions) {
-        this.pawnAndPositions = pawnAndPositions;
+    public void setMoveOfPawn(MoveOfPawn moveOfPawn) {
+        this.moveOfPawn = moveOfPawn;
     }
 
     public void setBoard(Field[][] board) {

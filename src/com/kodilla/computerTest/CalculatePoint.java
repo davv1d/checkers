@@ -1,17 +1,17 @@
 package com.kodilla.computerTest;
 
-import com.kodilla.movementCalculation.PawnAndPositions;
+import com.kodilla.movementCalculation.MoveOfPawn;
 import com.kodilla.oldElements.Position;
 
 public class CalculatePoint {
 
-    public static int calculatePoint(PawnAndPositions pawnAndPositions){
+    public static int calculatePoint(MoveOfPawn moveOfPawn){
         int point = 0;
-        Position lastPosition = pawnAndPositions.getLastPosition();
+        Position lastPosition = moveOfPawn.getLastPosition();
         if(lastPosition.getX()<6 && lastPosition.getX() > 1){
             point = point + 1;
         }
-        point += pawnAndPositions.getAmountKill() * 10;
+        point += moveOfPawn.getAmountKill() * 10;
         return point;
     }
 }

@@ -4,7 +4,8 @@ import com.kodilla.constantly.KindOfPosition;
 import com.kodilla.oldElements.Position;
 import com.kodilla.oldElements.Pawn;
 
-public class PositionAndKilledPawn {
+public class OneStepMove {
+
     private Position position;
     private Pawn compactedPawn;
     private KindOfPosition kindOfPosition;
@@ -18,7 +19,7 @@ public class PositionAndKilledPawn {
         return moveNumber;
     }
 
-    public PositionAndKilledPawn(Position position, Pawn compactedPawn, KindOfPosition kindOfPosition) {
+    public OneStepMove(Position position, Pawn compactedPawn, KindOfPosition kindOfPosition) {
         this.position = position;
         this.compactedPawn = compactedPawn;
         this.kindOfPosition = kindOfPosition;
@@ -49,7 +50,7 @@ public class PositionAndKilledPawn {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PositionAndKilledPawn that = (PositionAndKilledPawn) o;
+        OneStepMove that = (OneStepMove) o;
 
         if (getPosition() != null ? !getPosition().equals(that.getPosition()) : that.getPosition() != null)
             return false;

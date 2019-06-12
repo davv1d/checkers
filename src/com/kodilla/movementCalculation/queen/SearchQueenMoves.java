@@ -1,15 +1,15 @@
 package com.kodilla.movementCalculation.queen;
 
 import com.kodilla.movementCalculation.Coordinates;
-import com.kodilla.movementCalculation.PawnAndPositions;
-import com.kodilla.movementCalculation.PositionAndKilledPawn;
+import com.kodilla.movementCalculation.MoveOfPawn;
+import com.kodilla.movementCalculation.OneStepMove;
 import com.kodilla.movementCalculation.QueenKill;
 import com.kodilla.movementCalculation.dto.ElementsOfBoardDto;
 import com.kodilla.movementCalculation.dto.StartValues;
 import com.kodilla.constantly.BoardSize;
 import com.kodilla.constantly.KindOfPosition;
 import com.kodilla.oldElements.Position;
-import com.kodilla.tree.CreatePathFromTheTree;
+import com.kodilla.tree.TreePath;
 import com.kodilla.tree.Node;
 import com.kodilla.tree.LastNodesAndCompactedPawns;
 import com.kodilla.oldElements.Field;
@@ -22,23 +22,23 @@ import static com.kodilla.constantly.DefaultCoordinates.*;
 
 public class SearchQueenMoves {
 
-    public static void movementOfQueen(Pawn pawn, Field[][] board, List<PawnAndPositions> allPawnsAndPositions) {
+    public static void movementOfQueen(Pawn pawn, Field[][] board, List<MoveOfPawn> allPawnsAndPositions) {
         board[pawn.getLastPositionX()][pawn.getLastPositionY()].setPawn(null);
         StartValues startValues = new StartValues(pawn, board).invoke();
-        Node<PositionAndKilledPawn> root = startValues.getRoot();
+        Node<OneStepMove> root = startValues.getRoot();
         ElementsOfBoardDto elements = startValues.getElements();
         testIf(elements, root);
         board[pawn.getLastPositionX()][pawn.getLastPositionY()].setPawn(pawn);
 
-        List<Node<PositionAndKilledPawn>> leafNodes = new ArrayList<>();
+        List<Node<OneStepMove>> leafNodes = new ArrayList<>();
         LastNodesAndCompactedPawns.findLeafNode(root, leafNodes);
 
-        List<PawnAndPositions> tempPawnAndPositions = new ArrayList<>();
-        CreatePathFromTheTree.createPath(pawn, leafNodes, tempPawnAndPositions);
+        List<MoveOfPawn> tempPawnAndPositions = new ArrayList<>();
+        TreePath.createPath(pawn, leafNodes, tempPawnAndPositions);
         allPawnsAndPositions.addAll(tempPawnAndPositions);
     }
 
-    private static void testIf(ElementsOfBoardDto elements, Node<PositionAndKilledPawn> lastNode) {
+    private static void testIf(ElementsOfBoardDto elements, Node<OneStepMove> lastNode) {
         if (elements.x == 0 && elements.y == 7) {
             chooseMoveOrKill(elements, lastNode, addX_subY);
         } else if (elements.x == 0 && elements.y < 7) {
@@ -63,9 +63,9 @@ public class SearchQueenMoves {
         }
     }
 
-    private static void chooseMoveOrKill(ElementsOfBoardDto elements, Node<PositionAndKilledPawn> lastNode, Coordinates coordinates) {
+    private static void chooseMoveOrKill(ElementsOfBoardDto elements, Node<OneStepMove> lastNode, Coordinates coordinates) {
         if (isKill(elements, coordinates)) {
-            List<Node<PositionAndKilledPawn>> nodes = checkLineQueenKill(elements, lastNode, coordinates);
+            List<Node<OneStepMove>> nodes = checkLineQueenKill(elements, lastNode, coordinates);
             testDiagonalKill(elements, nodes, coordinates);
         } else {
             simpleQueenMove(elements, lastNode, coordinates);
@@ -90,13 +90,13 @@ public class SearchQueenMoves {
         return false;
     }
 
-    private static void simpleQueenMove(ElementsOfBoardDto elements, Node<PositionAndKilledPawn> lastNode, Coordinates coordinates) {
+    private static void simpleQueenMove(ElementsOfBoardDto elements, Node<OneStepMove> lastNode, Coordinates coordinates) {
         coordinates.setX_Y(elements.x, elements.y);
         while (!coordinates.calculate().equals(BoardSize.XY_OVERSIZE)) {
             if (!elements.board[coordinates.getX()][coordinates.getY()].hasPawn()) {
                 Position position = new Position(coordinates.getX(), coordinates.getY());
-                PositionAndKilledPawn positionAndKilledPawn = new PositionAndKilledPawn(position, null, KindOfPosition.SIMPLE_MOVE);
-                Node<PositionAndKilledPawn> node = new Node<>(positionAndKilledPawn);
+                OneStepMove oneStepMove = new OneStepMove(position, null, KindOfPosition.SIMPLE_MOVE);
+                Node<OneStepMove> node = new Node<>(oneStepMove);
                 lastNode.addChild(node);
             } else {
                 return;
@@ -111,7 +111,7 @@ public class SearchQueenMoves {
                 !compactedPawns.contains(elements.board[coor.getX()][coor.getY()].getPawn());
     }
 
-    private static void testDiagonalKill(ElementsOfBoardDto elements, List<Node<PositionAndKilledPawn>> nodes, Coordinates coordinates) {
+    private static void testDiagonalKill(ElementsOfBoardDto elements, List<Node<OneStepMove>> nodes, Coordinates coordinates) {
         if (coordinates.equals(addX_subY) || coordinates.equals(subX_addY)) {
             findActiveFieldsAndDoDiagonal(elements, nodes, addX_addY);
             findActiveFieldsAndDoDiagonal(elements, nodes, subX_subY);
@@ -121,17 +121,17 @@ public class SearchQueenMoves {
         }
     }
 
-    private static void findActiveFieldsAndDoDiagonal(ElementsOfBoardDto elements, List<Node<PositionAndKilledPawn>> nodes, Coordinates coordinates) {
-        List<Node<PositionAndKilledPawn>> activeNodes = checkOneDirection(elements, nodes, coordinates);
+    private static void findActiveFieldsAndDoDiagonal(ElementsOfBoardDto elements, List<Node<OneStepMove>> nodes, Coordinates coordinates) {
+        List<Node<OneStepMove>> activeNodes = checkOneDirection(elements, nodes, coordinates);
         if (!activeNodes.isEmpty()) {
             testDiagonalKill(elements, activeNodes, coordinates);
         }
     }
 
-    private static List<Node<PositionAndKilledPawn>> checkOneDirection(ElementsOfBoardDto elements, List<Node<PositionAndKilledPawn>> nodes, Coordinates coordinates) {
+    private static List<Node<OneStepMove>> checkOneDirection(ElementsOfBoardDto elements, List<Node<OneStepMove>> nodes, Coordinates coordinates) {
         ElementsOfBoardDto elementsNewPosition = new ElementsOfBoardDto(elements.pawn, elements.board, elements.x, elements.y);
-        List<Node<PositionAndKilledPawn>> activeNodes = new ArrayList<>();
-        for (Node<PositionAndKilledPawn> node : nodes) {
+        List<Node<OneStepMove>> activeNodes = new ArrayList<>();
+        for (Node<OneStepMove> node : nodes) {
             Position position = node.getDate().getPosition();
             elementsNewPosition.x = position.getX();
             elementsNewPosition.y = position.getY();
@@ -144,7 +144,7 @@ public class SearchQueenMoves {
     }
 
 
-    private static List<Node<PositionAndKilledPawn>> checkLineQueenKill(ElementsOfBoardDto elements, Node<PositionAndKilledPawn> lastNode, Coordinates coor) {
+    private static List<Node<OneStepMove>> checkLineQueenKill(ElementsOfBoardDto elements, Node<OneStepMove> lastNode, Coordinates coor) {
         coor.setX_Y(elements.x, elements.y);
         QueenKill queenKill = new QueenKill();
         while (true) {

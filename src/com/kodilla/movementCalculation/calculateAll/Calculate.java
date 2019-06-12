@@ -1,6 +1,6 @@
 package com.kodilla.movementCalculation.calculateAll;
 
-import com.kodilla.movementCalculation.PawnAndPositions;
+import com.kodilla.movementCalculation.MoveOfPawn;
 import com.kodilla.movementCalculation.pawn.SearchKillForPawns;
 import com.kodilla.movementCalculation.queen.SearchQueenMoves;
 import com.kodilla.constantly.PawnType;
@@ -13,8 +13,8 @@ import static com.kodilla.movementCalculation.pawn.SearchMovesForPawns.*;
 
 public class Calculate {
 
-    private static List<PawnAndPositions> calculateAllMoves(Field[][] board) {
-        List<PawnAndPositions> allPawnsAndPositions = new ArrayList<>();
+    private static List<MoveOfPawn> calculateAllMoves(Field[][] board) {
+        List<MoveOfPawn> allPawnsAndPositions = new ArrayList<>();
         for (Field[] fields : board) {
             for (Field field : fields) {
                 if (field.hasPawn() && !field.getPawn().isQueen()) {
@@ -26,7 +26,7 @@ public class Calculate {
         }
         return allPawnsAndPositions;
     }
-    private static void movementOfPawnsDependingOnType(Pawn pawn, Field[][] board, List<PawnAndPositions> allPawnsAndPositions) {
+    private static void movementOfPawnsDependingOnType(Pawn pawn, Field[][] board, List<MoveOfPawn> allPawnsAndPositions) {
         if (pawn.getPawnType().equals(PawnType.BLACK)) {
             boolean isKill = SearchKillForPawns.searchKillForPawn(pawn, board, allPawnsAndPositions);
             if (!isKill) {
@@ -40,13 +40,13 @@ public class Calculate {
         }
     }
 
-    public static List<PawnAndPositions> getMaxMovesAmongBlack(Field[][] board) {
-        List<PawnAndPositions> pawnsAndPositions = calculateAllMoves(board);
+    public static List<MoveOfPawn> getMaxMovesAmongBlack(Field[][] board) {
+        List<MoveOfPawn> pawnsAndPositions = calculateAllMoves(board);
         return CalculateMaxKill.findMaxKillAmongAll(pawnsAndPositions, PawnType.BLACK);
     }
 
-    public static List<PawnAndPositions> getMaxMovesAmongWhite(Field[][] board) {
-        List<PawnAndPositions> pawnsAndPositions = calculateAllMoves(board);
+    public static List<MoveOfPawn> getMaxMovesAmongWhite(Field[][] board) {
+        List<MoveOfPawn> pawnsAndPositions = calculateAllMoves(board);
         return CalculateMaxKill.findMaxKillAmongAll(pawnsAndPositions, PawnType.WHITE);
     }
 }

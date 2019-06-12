@@ -1,6 +1,6 @@
 package com.kodilla.movementCalculation.dto;
 
-import com.kodilla.movementCalculation.PositionAndKilledPawn;
+import com.kodilla.movementCalculation.OneStepMove;
 import com.kodilla.constantly.KindOfPosition;
 import com.kodilla.oldElements.Position;
 import com.kodilla.tree.Node;
@@ -10,7 +10,7 @@ import com.kodilla.oldElements.Pawn;
 public class StartValues {
     private Pawn pawn;
     private Field[][] board;
-    private Node<PositionAndKilledPawn> root;
+    private Node<OneStepMove> root;
     private ElementsOfBoardDto elements;
 
     public StartValues(Pawn pawn, Field[][] board) {
@@ -18,7 +18,7 @@ public class StartValues {
         this.board = board;
     }
 
-    public Node<PositionAndKilledPawn> getRoot() {
+    public Node<OneStepMove> getRoot() {
         return root;
     }
 
@@ -28,8 +28,8 @@ public class StartValues {
 
     public StartValues invoke() {
         Position startPosition = new Position(pawn.getLastPositionX(), pawn.getLastPositionY());
-        PositionAndKilledPawn positionAndKilledPawn = new PositionAndKilledPawn(startPosition, null, KindOfPosition.START);
-        root = new Node<>(positionAndKilledPawn);
+        OneStepMove oneStepMove = new OneStepMove(startPosition, null, KindOfPosition.START);
+        root = new Node<>(oneStepMove);
         elements = new ElementsOfBoardDto(pawn, board, pawn.getLastPositionX(), pawn.getLastPositionY());
         return this;
     }

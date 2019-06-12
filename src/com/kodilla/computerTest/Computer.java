@@ -1,7 +1,7 @@
 package com.kodilla.computerTest;
 
 import com.kodilla.movementCalculation.calculateAll.Calculate;
-import com.kodilla.movementCalculation.PawnAndPositions;
+import com.kodilla.movementCalculation.MoveOfPawn;
 import com.kodilla.constantly.PawnType;
 import com.kodilla.oldElements.PhysicalMovement;
 import com.kodilla.oldElements.Position;
@@ -24,7 +24,7 @@ public class Computer {
         System.out.println("board before computerTest");
         printAllBoard(board);
         Field[][] copyingOfTheBoard = copyingOfTheBoard(board);
-        List<PawnAndPositions> maxMovesAmongPawns = allMovesOfTheSelectedPawn(copyingOfTheBoard, pawnType);
+        List<MoveOfPawn> maxMovesAmongPawns = allMovesOfTheSelectedPawn(copyingOfTheBoard, pawnType);
         List<Node<MoveBoardAndPoint>> moveNodes = createNodes(maxMovesAmongPawns, board);
         List<Node<MoveBoardAndPoint>> nodes = doEachMoveNode(moveNodes);
         List<MoveBoardAndPoint> moveBoardAndPoints = calculatePoints(nodes);
@@ -37,16 +37,16 @@ public class Computer {
             Random random = new Random();
             int i = random.nextInt(max.size());
             MoveBoardAndPoint moveBoardAndPoint = max.get(i);
-            PawnAndPositions pawnAndPositions = moveBoardAndPoint.getPawnAndPositions();
-            List<Pawn> allCompactedPawns = pawnAndPositions.getAllCompactedPawns();
-            Pawn pawnOwner = pawnAndPositions.getPawnOwner();
+            MoveOfPawn moveOfPawn = moveBoardAndPoint.getMoveOfPawn();
+            List<Pawn> allCompactedPawns = moveOfPawn.getAllCompactedPawns();
+            Pawn pawnOwner = moveOfPawn.getPawnOwner();
             pawnOwner.setLastPositionX(moveBoardAndPoint.getPosition().getX());
             pawnOwner.setLastPositionY(moveBoardAndPoint.getPosition().getY());
             Pawn pawn = findPawnInOriginBoard(pawnOwner, board);
-            System.out.println(pawnAndPositions.getPositions());
+            System.out.println(moveOfPawn.getPositions());
             System.out.println("computerTest kill pawns " + allCompactedPawns);
             PhysicalMovement.removeCompactedPawns(allCompactedPawns, board);
-            Position lastPosition = pawnAndPositions.getLastPosition();
+            Position lastPosition = moveOfPawn.getLastPosition();
             System.out.println("computerTest move " + lastPosition);
             PhysicalMovement.doQueen(lastPosition.getY(), pawn);
             PhysicalMovement.pawnMove(lastPosition.getX(), lastPosition.getY(), pawn, board);
@@ -95,8 +95,8 @@ public class Computer {
         return moveBoardAndPoints;
     }
 
-    private List<PawnAndPositions> allMovesOfTheSelectedPawn(Field[][] board, PawnType pawnType) {
-        List<PawnAndPositions> maxMovesAmongPawns;
+    private List<MoveOfPawn> allMovesOfTheSelectedPawn(Field[][] board, PawnType pawnType) {
+        List<MoveOfPawn> maxMovesAmongPawns;
         if (pawnType.equals(PawnType.BLACK)) {
             maxMovesAmongPawns = Calculate.getMaxMovesAmongBlack(board);
         } else {
@@ -109,7 +109,7 @@ public class Computer {
         List<Node<MoveBoardAndPoint>> nodes = new ArrayList<>();
         for (Node<MoveBoardAndPoint> moveNode : moveNodes) {
             PawnType pawnType1 = oneNodeDoMove(moveNode, pawnType);
-            List<PawnAndPositions> opponentMoves = allMovesOfTheSelectedPawn(moveNode.getDate().getBoard(), pawnType1);
+            List<MoveOfPawn> opponentMoves = allMovesOfTheSelectedPawn(moveNode.getDate().getBoard(), pawnType1);
             List<Node<MoveBoardAndPoint>> opponentMove = new ArrayList<>();
             if(opponentMoves.isEmpty()){
                 nodes.add(moveNode);
@@ -118,7 +118,7 @@ public class Computer {
             }
             for (Node<MoveBoardAndPoint> opponentMoveNode : opponentMove) {
                 PawnType pawnType2 = oneNodeDoMove(opponentMoveNode, pawnType1);
-                List<PawnAndPositions> opponentMoves2 = allMovesOfTheSelectedPawn(opponentMoveNode.getDate().getBoard(), pawnType2);
+                List<MoveOfPawn> opponentMoves2 = allMovesOfTheSelectedPawn(opponentMoveNode.getDate().getBoard(), pawnType2);
                 List<Node<MoveBoardAndPoint>> computerMoves = opponentMove(opponentMoves2, opponentMoveNode);
                 if(computerMoves.isEmpty()) {
                     nodes.add(opponentMoveNode);
@@ -134,20 +134,20 @@ public class Computer {
         MoveBoardAndPoint moveNodeDate = moveNode.getDate();
         Field[][] board = moveNodeDate.getBoard();
         removePawns(moveNodeDate, board);
-        Position lastPosition = moveNodeDate.getPawnAndPositions().getLastPosition();
-        PhysicalMovement.pawnMove(lastPosition.getX(), lastPosition.getY(), moveNodeDate.getPawnAndPositions().getPawnOwner(), board);
+        Position lastPosition = moveNodeDate.getMoveOfPawn().getLastPosition();
+        PhysicalMovement.pawnMove(lastPosition.getX(), lastPosition.getY(), moveNodeDate.getMoveOfPawn().getPawnOwner(), board);
         return pawnType.equals(PawnType.BLACK) ? PawnType.WHITE : PawnType.BLACK;
     }
 
-    private List<Node<MoveBoardAndPoint>> opponentMove(List<PawnAndPositions> opponentPawnAndPositions, Node<MoveBoardAndPoint> moveNode) {
-        List<PawnAndPositions> bestMove = chooseBestMove(opponentPawnAndPositions);
+    private List<Node<MoveBoardAndPoint>> opponentMove(List<MoveOfPawn> opponentPawnAndPositions, Node<MoveBoardAndPoint> moveNode) {
+        List<MoveOfPawn> bestMove = chooseBestMove(opponentPawnAndPositions);
         List<Node<MoveBoardAndPoint>> opponentMoveNodes = createNodes(bestMove, moveNode.getDate().getBoard());
         moveNode.setChildren(opponentMoveNodes);
         return opponentMoveNodes;
     }
 
-    private List<PawnAndPositions> chooseBestMove(List<PawnAndPositions> opponentPawnAndPositions) {
-        List<PawnAndPositions> bestMove = new ArrayList<>();
+    private List<MoveOfPawn> chooseBestMove(List<MoveOfPawn> opponentPawnAndPositions) {
+        List<MoveOfPawn> bestMove = new ArrayList<>();
         OptionalInt max = opponentPawnAndPositions.stream()
                 .mapToInt(CalculatePoint::calculatePoint)
                 .max();
@@ -160,25 +160,25 @@ public class Computer {
     }
 
     private void removePawns(MoveBoardAndPoint moveNodeDate, Field[][] board) {
-        List<Pawn> allCompactedPAwns = moveNodeDate.getPawnAndPositions().getAllCompactedPawns();
+        List<Pawn> allCompactedPAwns = moveNodeDate.getMoveOfPawn().getAllCompactedPawns();
         if (!allCompactedPAwns.isEmpty()) {
             PhysicalMovement.removeCompactedPawns(allCompactedPAwns, board);
         }
     }
 
-    private List<Node<MoveBoardAndPoint>> createNodes(List<PawnAndPositions> maxMovesAmongPawns, Field[][] board) {
+    private List<Node<MoveBoardAndPoint>> createNodes(List<MoveOfPawn> maxMovesAmongPawns, Field[][] board) {
         List<Node<MoveBoardAndPoint>> moveBoardAndPointNodes = new ArrayList<>();
-        for (PawnAndPositions pawnAndPositions : maxMovesAmongPawns) {
-            int point = pawnAndPositions.getPawnOwner().getPawnType().equals(pawnType) ? CalculatePoint.calculatePoint(pawnAndPositions) : CalculatePoint.calculatePoint(pawnAndPositions) * -1;
+        for (MoveOfPawn moveOfPawn : maxMovesAmongPawns) {
+            int point = moveOfPawn.getPawnOwner().getPawnType().equals(pawnType) ? CalculatePoint.calculatePoint(moveOfPawn) : CalculatePoint.calculatePoint(moveOfPawn) * -1;
             Field[][] copyingOfTheBoard = copyingOfTheBoard(board);
-            Position position = new Position(pawnAndPositions.getPawnOwner().getLastPositionX(), pawnAndPositions.getPawnOwner().getLastPositionY());
-            PawnAndPositions copyPawnAndPositions = null;
+            Position position = new Position(moveOfPawn.getPawnOwner().getLastPositionX(), moveOfPawn.getPawnOwner().getLastPositionY());
+            MoveOfPawn copyMoveOfPawn = null;
             try {
-                copyPawnAndPositions = new PawnAndPositions((Pawn) pawnAndPositions.getPawnOwner().clone(), pawnAndPositions.getPositions());
+                copyMoveOfPawn = new MoveOfPawn((Pawn) moveOfPawn.getPawnOwner().clone(), moveOfPawn.getPositions());
             } catch (CloneNotSupportedException e) {
                 System.out.println(e.getMessage());
             }
-            MoveBoardAndPoint moveBoardAndPoint = new MoveBoardAndPoint(copyPawnAndPositions, copyingOfTheBoard, point, position);
+            MoveBoardAndPoint moveBoardAndPoint = new MoveBoardAndPoint(copyMoveOfPawn, copyingOfTheBoard, point, position);
             Node<MoveBoardAndPoint> moveNodes = new Node<>(moveBoardAndPoint);
             moveBoardAndPointNodes.add(moveNodes);
         }

@@ -2,8 +2,8 @@ package com.kodilla.playerMove;
 
 import com.kodilla.movementCalculation.calculateAll.Calculate;
 import com.kodilla.movementCalculation.dto.ElementsOfBoardDto;
-import com.kodilla.movementCalculation.PawnAndPositions;
-import com.kodilla.movementCalculation.PositionAndKilledPawn;
+import com.kodilla.movementCalculation.MoveOfPawn;
+import com.kodilla.movementCalculation.OneStepMove;
 import com.kodilla.constantly.MovementOrKill;
 import com.kodilla.constantly.PawnType;
 import com.kodilla.oldElements.PhysicalMovement;
@@ -18,7 +18,7 @@ import java.util.List;
 public class MovingThePiece {
 
     private boolean isEndOfRound;
-    private List<PawnAndPositions> temporaryMove = new ArrayList<>();
+    private List<MoveOfPawn> temporaryMove = new ArrayList<>();
     private int moveNumber = 0;
     private PhysicalMovement physicalMovement;
 
@@ -45,7 +45,7 @@ public class MovingThePiece {
         }
     }
 
-    private void testSwitch(ElementsOfBoardDto elements, Position positionOfTheNextMove, List<PawnAndPositions> maxMovesAmongPawns) {
+    private void testSwitch(ElementsOfBoardDto elements, Position positionOfTheNextMove, List<MoveOfPawn> maxMovesAmongPawns) {
         switch (checkIfThereIsSimpleMoveOrKill(elements, positionOfTheNextMove, maxMovesAmongPawns)) {
             case BACK:
                 PhysicalMovement.backPawnToLastPosition(elements.pawn);
@@ -62,7 +62,7 @@ public class MovingThePiece {
         }
     }
 
-    private void firstKillingFromSequence(ElementsOfBoardDto elements, Position positionOfTheNextMove, List<PawnAndPositions> maxMovesAmongPawns) {
+    private void firstKillingFromSequence(ElementsOfBoardDto elements, Position positionOfTheNextMove, List<MoveOfPawn> maxMovesAmongPawns) {
         temporaryMove = takeThisPawnMovesIncludingNextPosition(positionOfTheNextMove, maxMovesAmongPawns, elements.pawn);
         doTheKill(positionOfTheNextMove, elements);
     }
@@ -86,31 +86,31 @@ public class MovingThePiece {
     private int getLastMoveNumber() {
         return temporaryMove.stream()
                 .flatMap(pawnAndPositions -> pawnAndPositions.getPositions().stream())
-                .mapToInt(PositionAndKilledPawn::getMoveNumber)
+                .mapToInt(OneStepMove::getMoveNumber)
                 .max().getAsInt();
     }
 
     private List<Pawn> findKilledPawns(Position positionOfTheNextMove) {
         List<Pawn> compactedPawns = new ArrayList<>();
-        for (PawnAndPositions pawnAndPositions : temporaryMove) {
-            for (PositionAndKilledPawn positionAndKilledPawn : pawnAndPositions.getPositions()) {
-                if (positionAndKilledPawn.getPosition().equals(positionOfTheNextMove) &&
-                        positionAndKilledPawn.getMoveNumber() == moveNumber) {
-                    compactedPawns.add(positionAndKilledPawn.getCompactedPawn());
+        for (MoveOfPawn moveOfPawn : temporaryMove) {
+            for (OneStepMove oneStepMove : moveOfPawn.getPositions()) {
+                if (oneStepMove.getPosition().equals(positionOfTheNextMove) &&
+                        oneStepMove.getMoveNumber() == moveNumber) {
+                    compactedPawns.add(oneStepMove.getCompactedPawn());
                 }
             }
         }
         return compactedPawns;
     }
 
-    private List<PawnAndPositions> takeThisPawnMovesIncludingNextPosition(Position position, List<PawnAndPositions> movesThisPawn, Pawn pawn) {
-        List<PawnAndPositions> moveWithPosition = new ArrayList<>();
-        for (PawnAndPositions pawnAndPositions : movesThisPawn) {
-            if (pawnAndPositions.getPawnOwner().equals(pawn)) {
-                for (PositionAndKilledPawn positionAndKilledPawn : pawnAndPositions.getPositions()) {
-                    if (positionAndKilledPawn.getPosition().equals(position) &&
-                            positionAndKilledPawn.getMoveNumber() == moveNumber) {
-                        moveWithPosition.add(pawnAndPositions);
+    private List<MoveOfPawn> takeThisPawnMovesIncludingNextPosition(Position position, List<MoveOfPawn> movesThisPawn, Pawn pawn) {
+        List<MoveOfPawn> moveWithPosition = new ArrayList<>();
+        for (MoveOfPawn moveOfPawn : movesThisPawn) {
+            if (moveOfPawn.getPawnOwner().equals(pawn)) {
+                for (OneStepMove oneStepMove : moveOfPawn.getPositions()) {
+                    if (oneStepMove.getPosition().equals(position) &&
+                            oneStepMove.getMoveNumber() == moveNumber) {
+                        moveWithPosition.add(moveOfPawn);
                     }
                 }
             }
@@ -125,7 +125,7 @@ public class MovingThePiece {
         isEndOfRound = true;
     }
 
-    private MovementOrKill checkIfThereIsSimpleMoveOrKill(ElementsOfBoardDto elements, Position positionOfTheNextMove, List<PawnAndPositions> maxMovesAmongPawns) {
+    private MovementOrKill checkIfThereIsSimpleMoveOrKill(ElementsOfBoardDto elements, Position positionOfTheNextMove, List<MoveOfPawn> maxMovesAmongPawns) {
         if (!maxMovesAmongPawns.isEmpty()) {
             if (temporaryMove.isEmpty() && containsPawnAndPosition(elements, positionOfTheNextMove, maxMovesAmongPawns)) {
                 return MovementOrKill.FIRST_KILL;
@@ -140,7 +140,7 @@ public class MovingThePiece {
         }
     }
 
-    private boolean containsPawnAndPosition(ElementsOfBoardDto elements, Position positionOfTheNextMove, List<PawnAndPositions> maxMovesAmongPawns) {
+    private boolean containsPawnAndPosition(ElementsOfBoardDto elements, Position positionOfTheNextMove, List<MoveOfPawn> maxMovesAmongPawns) {
         return maxMovesAmongPawns.stream()
                 .filter(pawnAndPositions -> pawnAndPositions.getPawnOwner().equals(elements.pawn))
                 .flatMap(pawnAndPositions -> pawnAndPositions.getPositions().stream())

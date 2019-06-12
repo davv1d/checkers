@@ -1,7 +1,7 @@
 package com.kodilla.tree;
 
-import com.kodilla.movementCalculation.PawnAndPositions;
-import com.kodilla.movementCalculation.PositionAndKilledPawn;
+import com.kodilla.movementCalculation.MoveOfPawn;
+import com.kodilla.movementCalculation.OneStepMove;
 import com.kodilla.constantly.KindOfPosition;
 import com.kodilla.oldElements.Pawn;
 
@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
 
-public class CreatePathFromTheTree {
+public class TreePath {
 
-    public static void createPath(Pawn pawn, List<Node<PositionAndKilledPawn>> leafNodes, List<PawnAndPositions> test) {
-        List<List<PositionAndKilledPawn>> list = new ArrayList<>();
+    public static void createPath(Pawn pawn, List<Node<OneStepMove>> leafNodes, List<MoveOfPawn> movesOfPawns) {
+        List<List<OneStepMove>> list = new ArrayList<>();
         for (int i = 0; i < leafNodes.size(); i++) {
-            Node<PositionAndKilledPawn> node = leafNodes.get(i);
+            Node<OneStepMove> node = leafNodes.get(i);
             list.add(new ArrayList<>());
             while (node != null) {
                 list.get(i).add(node.getDate());
@@ -23,14 +23,14 @@ public class CreatePathFromTheTree {
         }
         List<Integer> maxKillCount = new ArrayList<>();
         OptionalInt max = findMaxKill(list, maxKillCount);
-        createPawnAndPositions(pawn, test, list, max, maxKillCount);
+        createPawnMove(pawn, movesOfPawns, list, max, maxKillCount);
     }
 
-    private static OptionalInt findMaxKill(List<List<PositionAndKilledPawn>> list, List<Integer> maxKillCount) {
-        for (List<PositionAndKilledPawn> positionAndKilledPawns : list) {
+    private static OptionalInt findMaxKill(List<List<OneStepMove>> list, List<Integer> maxKillCount) {
+        for (List<OneStepMove> oneStepMoves : list) {
             int count = 0;
-            for (PositionAndKilledPawn positionAndKilledPawn : positionAndKilledPawns) {
-                if (positionAndKilledPawn.hasCompactedPawn()) {
+            for (OneStepMove oneStepMove : oneStepMoves) {
+                if (oneStepMove.hasCompactedPawn()) {
                     count++;
                 }
             }
@@ -41,22 +41,22 @@ public class CreatePathFromTheTree {
                 .max();
     }
 
-    private static void createPawnAndPositions(Pawn pawn, List<PawnAndPositions> test, List<List<PositionAndKilledPawn>> list, OptionalInt biggestKill, List<Integer> maxKillCount) {
+    private static void createPawnMove(Pawn pawn, List<MoveOfPawn> test, List<List<OneStepMove>> list, OptionalInt biggestKill, List<Integer> maxKillCount) {
         if (biggestKill.isPresent()) {
             for (int j = 0; j < list.size(); j++) {
                 if (maxKillCount.get(j) == biggestKill.getAsInt()) {
                     int number = 0;
-                    PawnAndPositions pawnAndPositions = new PawnAndPositions(pawn);
+                    MoveOfPawn moveOfPawn = new MoveOfPawn(pawn);
                     for (int k = list.get(j).size() - 1; k >= 0; k--) {
                         if (list.get(j).get(k).getKindOfPosition().equals(KindOfPosition.NONE) ||
                                 list.get(j).get(k).getKindOfPosition().equals(KindOfPosition.SIMPLE_MOVE)) {
-                            PositionAndKilledPawn p = list.get(j).get(k);
+                            OneStepMove p = list.get(j).get(k);
                             p.setMoveNumber(number);
-                            pawnAndPositions.addPosition(p);
+                            moveOfPawn.addPosition(p);
                             number++;
                         }
                     }
-                    test.add(pawnAndPositions);
+                    test.add(moveOfPawn);
                 }
             }
         }

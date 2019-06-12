@@ -1,6 +1,6 @@
 package com.kodilla.tree;
 
-import com.kodilla.movementCalculation.PositionAndKilledPawn;
+import com.kodilla.movementCalculation.OneStepMove;
 import com.kodilla.oldElements.Pawn;
 
 import java.util.ArrayList;
@@ -8,10 +8,10 @@ import java.util.List;
 
 public class LastNodesAndCompactedPawns {
 
-    public static List<Pawn> findCompactedPawns(Node<PositionAndKilledPawn> lastNode) {
+    public static List<Pawn> findCompactedPawns(Node<OneStepMove> lastNode) {
         List<Pawn> compactedPawns = new ArrayList<>();
         if (lastNode != null) {
-            Node<PositionAndKilledPawn> node = lastNode;
+            Node<OneStepMove> node = lastNode;
             Pawn killedPawn = null;
             while (node != null) {
                 if (node.getDate().getCompactedPawn() != null && !node.getDate().getCompactedPawn().equals(killedPawn)) {
@@ -24,7 +24,7 @@ public class LastNodesAndCompactedPawns {
         return compactedPawns;
     }
 
-    public static void findLeafNode(Node<PositionAndKilledPawn> node, List<Node<PositionAndKilledPawn>> leafNodes) {
+    public static void findLeafNode(Node<OneStepMove> node, List<Node<OneStepMove>> leafNodes) {
         if(node.isLeafNode() && node.getParent() == null){
             return;
         } else if (node.isLeafNode()) {

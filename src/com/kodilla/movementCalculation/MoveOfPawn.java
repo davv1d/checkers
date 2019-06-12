@@ -6,21 +6,20 @@ import com.kodilla.oldElements.Pawn;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PawnAndPositions {
+public class MoveOfPawn {
     private Pawn pawnOwner;
-    private List<PositionAndKilledPawn> positions = new ArrayList<>();
+    private List<OneStepMove> positions = new ArrayList<>();
 
-    public PawnAndPositions(Pawn pawnOwner) {
+    public MoveOfPawn(Pawn pawnOwner) {
         this.pawnOwner = pawnOwner;
     }
 
-
-    public PawnAndPositions(Pawn pawnOwner, List<PositionAndKilledPawn> positions) {
+    public MoveOfPawn(Pawn pawnOwner, List<OneStepMove> positions) {
         this.pawnOwner = pawnOwner;
         this.positions = positions;
     }
 
-    public List<PositionAndKilledPawn> getPositions() {
+    public List<OneStepMove> getPositions() {
         return positions;
     }
 
@@ -28,8 +27,8 @@ public class PawnAndPositions {
         return pawnOwner;
     }
 
-    public void addPosition(PositionAndKilledPawn positionAndKilledPawn) {
-        positions.add(positionAndKilledPawn);
+    public void addPosition(OneStepMove oneStepMove) {
+        positions.add(oneStepMove);
     }
 
     public int getAmountKill() {
@@ -38,9 +37,9 @@ public class PawnAndPositions {
 
     public List<Pawn> getAllCompactedPawns() {
         List<Pawn> compactedPawns = new ArrayList<>();
-        for (PositionAndKilledPawn positionAndKilledPawn : positions) {
-            if (positionAndKilledPawn.getCompactedPawn() != null) {
-                compactedPawns.add(positionAndKilledPawn.getCompactedPawn());
+        for (OneStepMove oneStepMove : positions) {
+            if (oneStepMove.getCompactedPawn() != null) {
+                compactedPawns.add(oneStepMove.getCompactedPawn());
             }
         }
         return compactedPawns;
@@ -52,7 +51,7 @@ public class PawnAndPositions {
 
     private int findAllCompactedPawns() {
         return (int) positions.stream()
-                .filter(PositionAndKilledPawn::hasCompactedPawn)
+                .filter(OneStepMove::hasCompactedPawn)
                 .count();
     }
 
@@ -61,7 +60,7 @@ public class PawnAndPositions {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PawnAndPositions that = (PawnAndPositions) o;
+        MoveOfPawn that = (MoveOfPawn) o;
 
         if (getPawnOwner() != null ? !getPawnOwner().equals(that.getPawnOwner()) : that.getPawnOwner() != null)
             return false;

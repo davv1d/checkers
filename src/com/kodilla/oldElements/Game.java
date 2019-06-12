@@ -8,7 +8,9 @@ public class Game {
 
     private MovingThePiece movingThePiece;
     private Computer computer = new Computer();
+    private CheckersApp view;
     public Game(CheckersApp view) {
+        this.view = view;
         this.movingThePiece = new MovingThePiece(view);
     }
 

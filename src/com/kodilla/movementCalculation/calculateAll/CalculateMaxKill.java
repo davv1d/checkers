@@ -1,6 +1,6 @@
 package com.kodilla.movementCalculation.calculateAll;
 
-import com.kodilla.movementCalculation.PawnAndPositions;
+import com.kodilla.movementCalculation.MoveOfPawn;
 import com.kodilla.constantly.PawnType;
 
 import java.util.ArrayList;
@@ -11,15 +11,15 @@ import java.util.stream.Collectors;
 public class CalculateMaxKill {
 
 
-    public static List<PawnAndPositions> findMaxKillAmongAll(List<PawnAndPositions> allPawnsAndPositions, PawnType pawnType) {
-        List<PawnAndPositions> pawnsWithBiggestKill = new ArrayList<>();
-        List<PawnAndPositions> allPawnsOneType = findAllPawnsOneType(allPawnsAndPositions, pawnType);
+    public static List<MoveOfPawn> findMaxKillAmongAll(List<MoveOfPawn> allPawnsAndPositions, PawnType pawnType) {
+        List<MoveOfPawn> pawnsWithBiggestKill = new ArrayList<>();
+        List<MoveOfPawn> allPawnsOneType = findAllPawnsOneType(allPawnsAndPositions, pawnType);
         OptionalInt max = findNumberOfMaxKIll(allPawnsOneType);
         if (max.isPresent()) {
             int biggestKill = max.getAsInt();
-            for (PawnAndPositions pawnAndPositions : allPawnsOneType) {
-                if (pawnAndPositions.getAmountKill() == biggestKill) {
-                    pawnsWithBiggestKill.add(pawnAndPositions);
+            for (MoveOfPawn moveOfPawn : allPawnsOneType) {
+                if (moveOfPawn.getAmountKill() == biggestKill) {
+                    pawnsWithBiggestKill.add(moveOfPawn);
                 }
             }
             return pawnsWithBiggestKill;
@@ -28,7 +28,7 @@ public class CalculateMaxKill {
         }
     }
 
-    private static List<PawnAndPositions> findAllPawnsOneType(List<PawnAndPositions> allPawnsAndPositions, PawnType pawnType) {
+    private static List<MoveOfPawn> findAllPawnsOneType(List<MoveOfPawn> allPawnsAndPositions, PawnType pawnType) {
         return allPawnsAndPositions.stream()
                 .filter(pawnAndPositions -> pawnAndPositions.getPawnOwner().getPawnType().equals(pawnType))
                 .collect(Collectors.toList());
@@ -36,10 +36,10 @@ public class CalculateMaxKill {
 
 
 
-    private static OptionalInt findNumberOfMaxKIll(List<PawnAndPositions> allPawnsOneType) {
+    private static OptionalInt findNumberOfMaxKIll(List<MoveOfPawn> allPawnsOneType) {
         return allPawnsOneType.stream()
                 .filter(pawnAndPositions -> pawnAndPositions.getAmountKill() > 0)
-                .mapToInt(PawnAndPositions::getAmountKill)
+                .mapToInt(MoveOfPawn::getAmountKill)
                 .max();
     }
 }

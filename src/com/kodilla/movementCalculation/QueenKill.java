@@ -11,22 +11,22 @@ import java.util.List;
 
 public class QueenKill {
     private Pawn killedPawn = null;
-    private List<Node<PositionAndKilledPawn>> emptyFields = new ArrayList<>();
-    private List<Node<PositionAndKilledPawn>> result = new ArrayList<>();
-    private List<Node<PositionAndKilledPawn>> positionsWithKilledPawns = new ArrayList<>();
+    private List<Node<OneStepMove>> emptyFields = new ArrayList<>();
+    private List<Node<OneStepMove>> result = new ArrayList<>();
+    private List<Node<OneStepMove>> positionsWithKilledPawns = new ArrayList<>();
 
 
     public boolean isKilledPawn() {
         return killedPawn != null;
     }
 
-    public List<Node<PositionAndKilledPawn>> getResult() {
+    public List<Node<OneStepMove>> getResult() {
         return result;
     }
 
-    public void doWhenFirstKill(int x, int y, Field field, Node<PositionAndKilledPawn> lastNode) {
-        PositionAndKilledPawn positionAndKilledPawn = new PositionAndKilledPawn(new Position(x, y), field.getPawn(), KindOfPosition.KILL);
-        Node<PositionAndKilledPawn> killPosition = new Node<>(positionAndKilledPawn);
+    public void doWhenFirstKill(int x, int y, Field field, Node<OneStepMove> lastNode) {
+        OneStepMove oneStepMove = new OneStepMove(new Position(x, y), field.getPawn(), KindOfPosition.KILL);
+        Node<OneStepMove> killPosition = new Node<>(oneStepMove);
         killedPawn = field.getPawn();
         lastNode.addChild(killPosition);
         positionsWithKilledPawns.add(killPosition);
@@ -34,9 +34,9 @@ public class QueenKill {
     }
 
     public void doWhenEmptyField(int x, int y) {
-        PositionAndKilledPawn positionAndKilledPawn = new PositionAndKilledPawn(new Position(x, y), killedPawn, KindOfPosition.NONE);
-        for (Node<PositionAndKilledPawn> positionWithKilled : positionsWithKilledPawns) {
-            Node<PositionAndKilledPawn> emptyField = new Node<>(positionAndKilledPawn);
+        OneStepMove oneStepMove = new OneStepMove(new Position(x, y), killedPawn, KindOfPosition.NONE);
+        for (Node<OneStepMove> positionWithKilled : positionsWithKilledPawns) {
+            Node<OneStepMove> emptyField = new Node<>(oneStepMove);
             emptyFields.add(emptyField);
             result.add(emptyField);
             positionWithKilled.addChild(emptyField);
@@ -44,16 +44,16 @@ public class QueenKill {
     }
 
     public void doWhenNextKill(int x, int y, Field field) {
-        PositionAndKilledPawn positionAndKilledPawn = new PositionAndKilledPawn(new Position(x, y), field.getPawn(), KindOfPosition.KILL);
+        OneStepMove oneStepMove = new OneStepMove(new Position(x, y), field.getPawn(), KindOfPosition.KILL);
         killedPawn = field.getPawn();
         positionsWithKilledPawns.clear();
-        addKillToEmptyField(positionAndKilledPawn);
+        addKillToEmptyField(oneStepMove);
         emptyFields.clear();
     }
 
-    private void addKillToEmptyField(PositionAndKilledPawn positionAndKilledPawn) {
-        for (Node<PositionAndKilledPawn> emptyField : emptyFields) {
-            Node<PositionAndKilledPawn> date = new Node<>(positionAndKilledPawn);
+    private void addKillToEmptyField(OneStepMove oneStepMove) {
+        for (Node<OneStepMove> emptyField : emptyFields) {
+            Node<OneStepMove> date = new Node<>(oneStepMove);
             positionsWithKilledPawns.add(date);
             emptyField.addChild(date);
         }
