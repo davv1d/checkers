@@ -2,25 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23714648-9c0d-45ac-86ef-fc6941358eb1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/kodilla/model/dataObject/ItemsOfBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/kodilla/model/elementsOfTheBoard/Field.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/kodilla/model/elementsOfTheBoard/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/oldElements/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/checkers/com/kodilla/oldElements/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/computerTest/CalculatePoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/computerTest/Computer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/computerTest/MoveBoardAndPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/constantly/BoardSize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/constantly/DefaultCoordinates.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/constantly/KindOfPosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/constantly/MovementOrKill.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/constantly/PawnType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/Coordinates.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/PawnAndPositions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/PositionAndKilledPawn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/QueenKill.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/calculateAll/Calculate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/calculateAll/CalculateMaxKill.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/dto/ElementsOfBoardDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/dto/StartValues.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/pawn/SearchKillForPawns.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/pawn/SearchMovesForPawns.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/movementCalculation/queen/SearchQueenMoves.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/oldElements/Field.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/oldElements/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/oldElements/Pawn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/oldElements/PhysicalMovement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/oldElements/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/playerMove/MovingThePiece$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/playerMove/MovingThePiece.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/tree/CreatePathFromTheTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/tree/LastNodesAndCompactedPawns.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/tree/Node.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/checkers/com/kodilla/view/CheckersApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/checkers/com/kodilla/view/CheckersApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/computerTest/CalculatePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/computerTest/CalculatePoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/computerTest/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/computerTest/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/computerTest/MoveBoardAndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/computerTest/MoveBoardAndPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/PawnAndPositions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/MoveOfPawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/PositionAndKilledPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/OneStepMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/QueenKill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/QueenKill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/Calculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/Calculate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/CalculateMaxKill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/CalculateMaxKill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/dto/StartValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/dto/StartValues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/pawn/SearchKillForPawns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/pawn/SearchKillForPawns.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/pawn/SearchMovesForPawns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/pawn/SearchMovesForPawns.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/queen/SearchQueenMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/queen/SearchQueenMoves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/oldElements/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/oldElements/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/playerMove/MovingThePiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/playerMove/MovingThePiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/tree/CreatePathFromTheTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/tree/TreePath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kodilla/tree/LastNodesAndCompactedPawns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/tree/LastNodesAndCompactedPawns.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/computerTest/CalculatePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/computerTest/CalculatePoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/computerTest/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/computerTest/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/computerTest/MoveBoardAndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/dataObject/MoveBoardAndPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/constantly/BoardSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/constantly/BoardSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/constantly/DefaultCoordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/constantly/DefaultCoordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/constantly/KindOfPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/constantly/KindOfPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/constantly/MovementOrKill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/constantly/MovementOrKill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/constantly/PawnType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/MoveOfPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/MoveOfPawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/OneStepMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/OneStepMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/QueenKill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/QueenKill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/Calculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/calculateAll/Calculate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/CalculateMaxKill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/calculateAll/CalculateMaxKill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/dto/ElementsOfBoardDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/dto/StartValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/dataObject/StartValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/pawn/SearchKillForPawns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/pawn/SearchKillForPawns.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/pawn/SearchMovesForPawns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/pawn/SearchMovesForPawns.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/movementCalculation/queen/SearchQueenMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/queen/SearchQueenMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/oldElements/Field.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/oldElements/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/oldElements/Pawn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/oldElements/PhysicalMovement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/oldElements/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/elementsOfTheBoard/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/playerMove/MovingThePiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/playerMoveCorrectness/MovingThePiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/tree/LastNodesAndCompactedPawns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/tree/ActionsOnTheTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/tree/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/tree/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kodilla/tree/TreePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/model/tree/TreePath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/kodilla/view/CheckersApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kodilla/view/CheckersApp.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,15 +77,25 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
         <option value="Arquillian JUnit Test Class" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -52,57 +105,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/BoxForLists.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/Coordinatess.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/BoardSize.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/LastNodesAndCompactedPAwns.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/Coordinates.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/DefaultCoordinates.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/SearchKillForQueen.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/StartValues.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/Test.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/QueenKill.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/testFindallMoves/RealMove.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/Calculate.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/SearchMovesForPawns.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/calculateTemporaryList/AllQueenPositions.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/CreatePathFromTheTree.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/myEnum/KindOfPosition.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/SearchKillForPawns.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/computer/PositionAndBoard.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/computer/CalculatePoint.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/tree/Node.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/computer/MoveBoardAndPoint.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/view/Pawn.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/view/Game.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/PawnAndPositions.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/PositionAndKilledPawn.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/testFindallMoves/Position.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/SearchQueenMoves.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/testFindallMoves/PhysicalMovement.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/computer/Computer.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/MovingThePiece.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/ElementsOfBoard.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/ElementsOfBoardDto.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/checkersExperience/lastNodesAndCompactedPawns.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/playerMove/MovingThePiece.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/dto/StartValues.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/queen/SearchQueenMoves.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/Field.java" />
         <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/Calculate.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/myEnum/DefaultCoordinates.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/constantly/DefaultCoordinates.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/Pawn.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/tree/lastNodesAndCompactedPawns.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/tree/LastNodesAndCompactedPawns.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/CalculateMaxKill.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/ImageViewPawn.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/MoveData.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/constantly/MovementOrKill.java" />
         <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/TestGame.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/CheckQueen.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/DefaultSettings.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/FunctionMove.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/Behaviour.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/ComputerCheckedMove.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/CheckedMovement.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/playerMove/MovingThePiece.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/Model.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/PlayerMove.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/HumanMove.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/ComputerMove.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/PhysicalMovement.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/oldElements/Pawn.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/computerTest/Computer.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/elementsOfTheBoard/Field.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/userMoves/ComputerMove.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/dataObject/CheckedMovement.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/dataObject/MoveBoardAndPoint.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/playerMoveCorrectness/MovingThePiece.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/dataObject/ElementsOfBoardDto.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/dataObject/ElementsOfBoard.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/dataObject/ItemsOfBoard.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/pawn/SearchMovesForPawns.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/pawn/SearchKillForPawns.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/tree/LastNodesAndCompactedPawns.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/tree/ActionsOnTheTree.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/CheckQueen.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/playerMoveCorrectness/MovingThePiece.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/Conditions.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/queen/SearchQueenMoves.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/Behaviour.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/ActionOnTheBoard.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/stateOfTheGame/DefaultSettings.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/CopyBoard.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/computerTest/Computer.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/stateOfTheGame/TestGame.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/constantly/Win.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/stateOfTheGame/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/model/Model.java" />
         <option value="$PROJECT_DIR$/src/com/kodilla/view/CheckersApp.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/PawnAndPositions.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/PositionAndKilledPawn.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/OneStepMove.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/tree/CreatePathFromTheTree.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/tree/TreePath.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/PawnMove.java" />
-        <option value="$PROJECT_DIR$/src/com/kodilla/movementCalculation/MoveOfPawn.java" />
+        <option value="$PROJECT_DIR$/src/com/kodilla/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -120,19 +173,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="checkers" type="b2602c69:ProjectViewProjectNode" />
-              <item name="checkers" type="462c0819:PsiDirectoryNode" />
+              <item name="checkersClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="checkersClone2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="checkersClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="checkersClone2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="checkersClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="checkersClone2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="kodilla" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -144,7 +208,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkersClone" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkers" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -153,20 +217,21 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.kodilla.computer" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.kodilla.computer" />
-      <recent name="com.kodilla.view" />
-      <recent name="com.kodilla.view.testMVC" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.kodilla.view" />
-      <recent name="com.kodilla.view.testMVC" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Lenovo\IdeaProjects\checkers\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kodilla.view" />
+      <recent name="com.kodilla.view.testMVC" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.kodilla.oldElements" />
+      <recent name="com.kodilla.computer" />
+      <recent name="com.kodilla.view" />
+      <recent name="com.kodilla.view.testMVC" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -325,11 +390,16 @@
       <workItem from="1559838454559" duration="17690000" />
       <workItem from="1560015155818" duration="891000" />
       <workItem from="1560367332194" duration="7250000" />
+      <workItem from="1560375408780" duration="40000" />
+      <workItem from="1560378731899" duration="4616000" />
+      <workItem from="1560407774780" duration="31288000" />
+      <workItem from="1560448123024" duration="14534000" />
+      <workItem from="1560511920287" duration="1157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="631723000" />
+    <option name="totallyTimeSpent" value="683358000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -343,27 +413,28 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.489418" visible="true" weight="0.2193646" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.489418" visible="true" weight="0.23600605" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Structure" order="5" sideWeight="0.51058203" side_tool="true" weight="0.27382752" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.31423897" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" weight="0.38134205" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.3453355" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3289689" />
-      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.3289689" />
+      <window_info anchor="bottom" id="Duplicates" order="0" weight="0.3289689" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49924356" weight="0.31423897" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49848714" weight="0.38134205" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3289689" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5015129" side_tool="true" weight="0.3453355" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3289689" />
+      <window_info anchor="bottom" id="Duplicate detector" order="14" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -382,30 +453,28 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/kodilla/playerMove/MovingThePiece.java</url>
-          <line>44</line>
+          <url>file://$PROJECT_DIR$/src/com/kodilla/model/playerMoveCorrectness/MovingThePiece.java</url>
+          <line>33</line>
           <properties />
           <option name="timeStamp" value="325" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/queen/SearchQueenMoves.java</url>
-          <line>72</line>
+          <url>file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/queen/SearchQueenMoves.java</url>
+          <line>73</line>
           <properties />
           <option name="timeStamp" value="327" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/queen/SearchQueenMoves.java</url>
-          <line>69</line>
+          <url>file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/queen/SearchQueenMoves.java</url>
+          <line>70</line>
           <properties />
           <option name="timeStamp" value="328" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/com/kodilla/view/CheckersApp.java</url>
-          <line>73</line>
-          <properties class="com.kodilla.view.CheckersApp" method="playerPawnBlock">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="332" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/kodilla/model/userMoves/ComputerMove.java</url>
+          <line>15</line>
+          <properties />
+          <option name="timeStamp" value="358" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -429,226 +498,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="1224" column="18" selection-start-line="1224" selection-start-column="18" selection-end-line="1224" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/testFindallMoves/PawnAndHisMove.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/interafeTest/CalculateQueenMovement.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/myEnum/KindOfTempQueenMove.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/beans/property/DoublePropertyBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="155" selection-start-line="155" selection-end-line="155" />
-          <folding>
-            <element signature="e#3997#3998#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/checkersExperience/DirectionFunction.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/testFindallMoves/CalculateMaxKill.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/testFindallMoves/RealMove.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/calculateTemporaryList/AllPawnPositions.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/interafeTest/CalculateAllMovements.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/interafeTest/CalculatePawnMovement.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/testFindallMoves/Movement.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/calculateTemporaryList/AllQueenPositions.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/myEnum/KindOfMove.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/stage/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-          <folding>
-            <element signature="e#15779#15780#0" expanded="true" />
-            <element signature="e#15822#15823#0" expanded="true" />
-            <element signature="e#47191#47192#0" expanded="true" />
-            <element signature="e#47222#47223#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="434" column="15" selection-start-line="434" selection-start-column="15" selection-end-line="434" selection-end-column="15" />
-          <folding>
-            <element signature="e#15586#15587#0" expanded="true" />
-            <element signature="e#15631#15632#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/oldElements/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#192#193#0" expanded="true" />
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/CalculateMaxKill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/calculateAll/Calculate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/dto/StartValues.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/Coordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/pawn/SearchKillForPawns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/pawn/SearchMovesForPawns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/QueenKill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/oldElements/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/computerTest/ComputerMove.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/constantly/BoardSize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/constantly/DefaultCoordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/constantly/KindOfPosition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/constantly/MovementOrKill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/constantly/PawnType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/computerTest/CalculatePoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/oldElements/PhysicalMovement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/playerMove/MovingThePiece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/computerTest/Computer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/constantly/BoardSize.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/constantly/DefaultCoordinates.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/constantly/KindOfPosition.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/computerTest/CalculatePoint.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/scene/Parent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -697,92 +550,258 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/tree/Node.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/event/EventType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
+          <folding>
+            <element signature="e#4603#4604#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/scene/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
-          <caret line="3770" selection-start-line="3770" selection-end-line="3770" />
+          <caret line="3760" selection-start-line="3760" selection-end-line="3760" />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/event/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="198" selection-start-line="198" selection-end-line="198" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/oldElements/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        <state relative-caret-position="200">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#4362#4363#0" expanded="true" />
+            <element signature="e#4393#4394#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/computerTest/MoveBoardAndPoint.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/calculateAll/Calculate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/queen/SearchQueenMoves.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/constantly/MovementOrKill.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/tree/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/calculateAll/CalculateMaxKill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/oldElements/ComputerCheckedMove.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/oldElements/PhysicalMovement.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/constantly/PawnType.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/view/ImageViewPawn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#245#246#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/tree/LastNodesAndCompactedPawns.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/oldElements/Game.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/elementsOfTheBoard/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/elementsOfTheBoard/Pawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#1743#1744#0" expanded="true" />
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#2024#2025#0" expanded="true" />
+            <element signature="e#2055#2056#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/elementsOfTheBoard/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/userMoves/PlayerMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/userMoves/HumanMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/tree/TreePath.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/dataObject/StartValues.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="57" lean-forward="true" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+        <state>
+          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/dataObject/MoveBoardAndPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/dataObject/CheckedMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/MoveOfPawn.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/dataObject/ItemsOfBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/dataObject/MoveData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/tree/TreePath.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/tree/ActionsOnTheTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/pawn/SearchKillForPawns.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/pawn/SearchMovesForPawns.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/QueenKill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/OneStepMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/CheckQueen.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/queen/SearchQueenMoves.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="148" column="36" lean-forward="true" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/movementCalculation/MoveOfPawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="83" column="1" lean-forward="true" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/stateOfTheGame/DefaultSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding>
+            <element signature="e#569#570#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/ActionOnTheBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/Conditions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="39" column="89" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -791,39 +810,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kodilla/view/CheckersApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+        <state relative-caret-position="306">
+          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4636#4637#0" expanded="true" />
+            <element signature="e#3319#3320#0" expanded="true" />
+            <element signature="e#3347#3348#0" expanded="true" />
+            <element signature="e#4092#4093#0" expanded="true" />
+            <element signature="e#4133#4134#0" expanded="true" />
+            <element signature="e#4611#4612#0" expanded="true" />
+            <element signature="e#4644#4645#0" expanded="true" />
+            <element signature="e#4408#4409#0" expanded="true" />
+            <element signature="e#4442#4443#0" expanded="true" />
+            <element signature="e#9037#9038#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/dto/ElementsOfBoardDto.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/stateOfTheGame/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="153">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/constantly/Win.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/computerTest/Computer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="71" selection-start-line="71" selection-end-line="81" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1560451282876" expanded="true" signature="9992:10524" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/playerMoveCorrectness/MovingThePiece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="128" column="5" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/movementCalculation/OneStepMove.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/boardBeaviour/CopyBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="119">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kodilla/oldElements/Pawn.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kodilla/model/userMoves/ComputerMove.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="340">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
         </state>
       </provider>
     </entry>
