@@ -3,18 +3,10 @@ package com.kodilla.model.elementsOfTheBoard;
 public class Field {
     private Pawn pawn;
     private boolean isBlack;
-//    private int x;
-//    private int y;
 
     public Field(boolean isBlack) {
         this.pawn = null;
         this.isBlack = isBlack;
-//        this.setWidth(CheckersApp.FIELD_SIZE);
-//        this.setHeight(CheckersApp.FIELD_SIZE);
-//        this.relocate(x * CheckersApp.FIELD_SIZE, y * CheckersApp.FIELD_SIZE);
-//        this.setFill(colour ? Color.WHITE : Color.BLACK);
-//        this.x = x;
-//        this.y = y;
     }
 
     public boolean isBlack() {

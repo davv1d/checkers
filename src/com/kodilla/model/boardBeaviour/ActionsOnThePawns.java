@@ -7,7 +7,7 @@ import com.kodilla.model.elementsOfTheBoard.Position;
 
 import java.util.List;
 
-public class ActionOnTheBoard {
+public class ActionsOnThePawns {
 
     public static void removingKilledPawns(List<Position> pawnToBeRemoved, Field[][] board) {
         for (Position position : pawnToBeRemoved) {

@@ -35,16 +35,16 @@ public class MoveOfPawn {
         return findAllCompactedPawns();
     }
 
-    public List<Pawn> getAllCompactedPawns() {
-        List<Pawn> compactedPawns = new ArrayList<>();
+    public List<Position> getAllCompactedPawns() {
+        List<Position> compactedPawns = new ArrayList<>();
         for (OneStepMove oneStepMove : positions) {
             if (oneStepMove.getCompactedPawn() != null) {
-                compactedPawns.add(oneStepMove.getCompactedPawn());
+                Pawn compactedPawn = oneStepMove.getCompactedPawn();
+                compactedPawns.add(new Position(compactedPawn.getLastPositionX(), compactedPawn.getLastPositionY()));
             }
         }
         return compactedPawns;
     }
-
     public Position getLastPosition() {
         return positions.get(positions.size() - 1).getPosition();
     }

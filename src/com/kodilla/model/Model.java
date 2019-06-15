@@ -1,56 +1,47 @@
 package com.kodilla.model;
 
-import com.kodilla.model.computerTest.Computer;
-import com.kodilla.model.constantly.Win;
-import com.kodilla.model.dataObject.CheckedMovement;
+import com.kodilla.model.computer.Computer;
+import com.kodilla.model.dataObject.ModelData;
 import com.kodilla.model.stateOfTheGame.DefaultSettings;
-import com.kodilla.model.stateOfTheGame.Game;
+import com.kodilla.model.stateOfTheGame.MainBoard;
+import com.kodilla.model.stateOfTheGame.Judge;
 import com.kodilla.model.userMoves.ComputerMove;
 import com.kodilla.model.userMoves.HumanMove;
 import com.kodilla.model.dataObject.MoveData;
 import com.kodilla.model.playerMoveCorrectness.MovingThePiece;
 
 public class Model {
-    private Game game;
+    private MainBoard mainBoard;
     private DefaultSettings defaultSettings;
-    private MovingThePiece movingThePiece;
     private HumanMove humanMove;
     private ComputerMove computerMove;
 
     public Model() {
         defaultSettings = new DefaultSettings();
-        game = new Game(defaultSettings.getLogicBoard());
-        movingThePiece = new MovingThePiece();
-        humanMove = new HumanMove(game, movingThePiece);
+        mainBoard = new MainBoard(defaultSettings.getLogicBoard());
+        MovingThePiece movingThePiece = new MovingThePiece();
+        humanMove = new HumanMove(mainBoard, movingThePiece);
         Computer computer = new Computer();
-        computerMove = new ComputerMove(game, computer);
+        computerMove = new ComputerMove(mainBoard, computer);
     }
 
     public void doDefaultBoardGame() {
-        game.setGameBoard(defaultSettings.getLogicBoard());
+        mainBoard.setGameBoard(defaultSettings.getLogicBoard());
     }
 
     public DefaultSettings getDefaultSettings() {
         return defaultSettings;
     }
 
-    public CheckedMovement checkPlayerMovement(MoveData moveData) {
-        return humanMove.checkPlayerMove(moveData);
+    public ModelData checkPlayerMovement(MoveData moveData) {
+        ModelData modelData = humanMove.checkPlayerMove(moveData);
+        modelData.setWinner(Judge.checkWin(modelData.getPawn().isBlack(), mainBoard.getGameBoard()));
+        return modelData;
     }
 
-    public CheckedMovement computerMovement(){
-        return computerMove.checkComputerMove();
-    }
-
-    public String isWin() {
-        boolean blackPawns = game.isPawnsOfASpecificType(true);
-        boolean whitePawns = game.isPawnsOfASpecificType(false);
-        if (blackPawns && !whitePawns) {
-            return "White pawns win";
-        } else if (!blackPawns && whitePawns) {
-            return "Black pawns win";
-        } else {
-            return "";
-        }
+    public ModelData computerMovement() {
+        ModelData modelData = computerMove.checkComputerMove();
+        modelData.setWinner(Judge.checkWin(modelData.getPawn().isBlack(), mainBoard.getGameBoard()));
+        return modelData;
     }
 }

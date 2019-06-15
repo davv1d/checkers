@@ -1,13 +1,13 @@
 package com.kodilla.model.stateOfTheGame;
 
-import com.kodilla.model.boardBeaviour.CopyBoard;
+import com.kodilla.model.boardBeaviour.ActionsOnTheBoard;
 import com.kodilla.model.elementsOfTheBoard.Field;
 import com.kodilla.model.elementsOfTheBoard.Pawn;
 
 public class DefaultSettings {
 
-    public static final int WIDTH = 8;
-    public static final int HEIGHT = 8;
+    private static final int WIDTH = 8;
+    private static final int HEIGHT = 8;
     private Field[][] logicBoard = new Field[WIDTH][HEIGHT];
     private boolean[][] fieldsBoard = new boolean[WIDTH][HEIGHT];
     private Boolean[][] pawnsBoard = new Boolean[WIDTH][HEIGHT];
@@ -26,10 +26,10 @@ public class DefaultSettings {
     }
 
     public Field[][] getLogicBoard() {
-        return CopyBoard.invoke(logicBoard);
+        return ActionsOnTheBoard.invoke(logicBoard);
     }
 
-    public void createBoard() {
+    private void createBoard() {
         for (int x = 0; x < HEIGHT; x++) {
             for (int y = 0; y < WIDTH; y++) {
                 Field field = new Field((x + y) % 2 != 0);
@@ -39,8 +39,8 @@ public class DefaultSettings {
         }
     }
 
-    public void addPawn() {
-        Pawn pawn = null;
+    private void addPawn() {
+        Pawn pawn;
         for (int x = 0; x < logicBoard.length; x++) {
             for (int y = 0; y < logicBoard[x].length; y++) {
                 if (logicBoard[x][y].isBlack() && y <= 2) {

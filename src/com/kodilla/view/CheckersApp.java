@@ -1,5 +1,6 @@
 package com.kodilla.view;
 
+import com.kodilla.model.constantly.Winner;
 import com.kodilla.model.dataObject.MoveData;
 import com.kodilla.controller.Controller;
 import com.kodilla.model.elementsOfTheBoard.Position;
@@ -22,15 +23,17 @@ import java.util.List;
 
 public class CheckersApp extends Application {
 
-    public static final int FIELD_SIZE = 80;
+    static final int FIELD_SIZE = 80;
     public static final int WIDTH = 8;
     public static final int HEIGHT = 8;
-    public static final int PAWN_SIZE = 50;
-    public static final String URL_IMAGE_BLACK_PAWN = "file:resources/goldPawn.png";
-    public static final String URL_IMAGE_WHITE_PAWN = "file:resources/silverPawn.png";
+    private static final int PAWN_SIZE = 50;
+    private static final String URL_IMAGE_BLACK_PAWN = "file:resources/goldPawn.png";
+    private static final String URL_IMAGE_WHITE_PAWN = "file:resources/silverPawn.png";
 
-    public static final String URL_IMAGE_BLACK_QUEEN = "file:resources/goldQueen2.png";
-    public static final String URL_IMAGE_WHITE_QUEEN = "file:resources/silverQueen2.png";
+    private static final String URL_IMAGE_BLACK_QUEEN = "file:resources/goldQueen2.png";
+    private static final String URL_IMAGE_WHITE_QUEEN = "file:resources/silverQueen2.png";
+    private static final String WON_WHITE = "White pawns won";
+    private static final String WON_BLACK = "Black pawns won";
 
     private Group fieldGroup = new Group();
     private Group sideMenuGroup = new Group();
@@ -52,16 +55,6 @@ public class CheckersApp extends Application {
     private Label winLabel = new Label("");
     private Button backToMenu = new Button("Back to menu");
 
-    private void resetClick(MouseEvent mouseEvent) {
-        controller.newGame();
-    }
-
-    public void removePawnsFromTheBoard() {
-        blackPawnGroup.getChildren().clear();
-        whitePawnGroup.getChildren().clear();
-        viewPawns = new ImageViewPawn[WIDTH][HEIGHT];
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         createMainMenu();
@@ -74,11 +67,38 @@ public class CheckersApp extends Application {
         primaryStage.show();
     }
 
-    public void changeStatus() {
-        if (gameStatusLabel.getText().equals(status)) {
-            gameStatusLabel.setText(status2);
-        } else {
+    private void resetClick(MouseEvent mouseEvent) {
+        controller.newGame();
+    }
+
+    private void submitMainMenu(MouseEvent event) {
+        controller.createMainMenu();
+    }
+
+    private void backToMenuClick(MouseEvent event) {
+        controller.backToMenu();
+    }
+
+    private void mouseReleased(MouseEvent event) {
+        int newX = (int) event.getSceneX() / FIELD_SIZE;
+        int newY = (int) event.getSceneY() / FIELD_SIZE;
+        ImageViewPawn pawn = (ImageViewPawn) event.getSource();
+        MoveData moveData = new MoveData(pawn.getLastPositionX(), pawn.getLastPositionY(), newX, newY);
+        controller.play(moveData, twoPlayers.isSelected());
+
+    }
+
+    public void removePawnsFromTheBoard() {
+        blackPawnGroup.getChildren().clear();
+        whitePawnGroup.getChildren().clear();
+        viewPawns = new ImageViewPawn[WIDTH][HEIGHT];
+    }
+
+    public void changeStatus(boolean isBlack) {
+        if (isBlack) {
             gameStatusLabel.setText(status);
+        } else {
+            gameStatusLabel.setText(status2);
         }
     }
 
@@ -112,10 +132,6 @@ public class CheckersApp extends Application {
         mainMenuGroup.getChildren().clear();
     }
 
-    private void submitMainMenu(MouseEvent event) {
-        controller.testMainMenu();
-    }
-
     public void createSideMenu() {
         backToMenu.relocate(FIELD_SIZE * WIDTH + 15, 400);
         backToMenu.setOnMouseClicked(this::backToMenuClick);
@@ -126,14 +142,6 @@ public class CheckersApp extends Application {
         resetButton.relocate(FIELD_SIZE * WIDTH + 15, 15);
         resetButton.setOnMouseClicked(this::resetClick);
         sideMenuGroup.getChildren().addAll(resetButton, gameStatusLabel, winLabel, backToMenu);
-    }
-
-    private void backToMenuClick(MouseEvent event) {
-        controller.backToMenu();
-    }
-
-    public void setWinLabel(String text) {
-        winLabel.setText(text);
     }
 
     public void paintPawns(Boolean[][] pawnsBoard) {
@@ -157,16 +165,32 @@ public class CheckersApp extends Application {
         pawn.setTranslateY(positionInCentre);
         pawn.relocate(x * CheckersApp.FIELD_SIZE, y * CheckersApp.FIELD_SIZE);
         pawn.setOnMouseReleased(this::mouseReleased);
-        boolean b = isBlack ? blackPawnGroup.getChildren().add(pawn) : whitePawnGroup.getChildren().add(pawn);
+        if (isBlack) {
+            blackPawnGroup.getChildren().add(pawn);
+        } else {
+            whitePawnGroup.getChildren().add(pawn);
+        }
     }
 
-    private void mouseReleased(MouseEvent event) {
-        int newX = (int) event.getSceneX() / FIELD_SIZE;
-        int newY = (int) event.getSceneY() / FIELD_SIZE;
-        ImageViewPawn pawn = (ImageViewPawn) event.getSource();
-        MoveData moveData = new MoveData(pawn.getLastPositionX(), pawn.getLastPositionY(), newX, newY);
-        controller.doMove(moveData, twoPlayers.isSelected());
+    public void winner(Winner winner) {
+        setDisablePawns(true, true);
+        setDisablePawns(false, true);
+        gameStatusLabel.setText("");
+        whoWon(winner);
+    }
 
+    private void whoWon(Winner winner) {
+        switch (winner) {
+            case WHITE:
+                winLabel.setText(WON_WHITE);
+                break;
+            case BLACK:
+                winLabel.setText(WON_BLACK);
+                break;
+            case NONE:
+                winLabel.setText("");
+                break;
+        }
     }
 
     public void move(int lastPositionX, int lastPositionY, int newX, int newY) {

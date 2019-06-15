@@ -1,5 +1,5 @@
 package com.kodilla.model.constantly;
 
-public enum Win {
+public enum Winner {
     WHITE, BLACK, NONE
 }

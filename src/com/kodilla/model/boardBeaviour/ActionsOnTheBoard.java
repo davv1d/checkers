@@ -1,9 +1,10 @@
 package com.kodilla.model.boardBeaviour;
 
 import com.kodilla.model.elementsOfTheBoard.Field;
+import com.kodilla.model.elementsOfTheBoard.Pawn;
 import com.kodilla.view.CheckersApp;
 
-public class CopyBoard {
+public class ActionsOnTheBoard {
 
     public static Field[][] invoke(Field[][] board) {
         Field[][] copyOfTheBoard = new Field[CheckersApp.WIDTH][CheckersApp.HEIGHT];
@@ -17,5 +18,18 @@ public class CopyBoard {
             }
         }
         return copyOfTheBoard;
+    }
+
+    public static Pawn findPawn(Field[][] board, int lastPositionX, int lastPositionY) {
+        for (Field[] fields : board) {
+            for (Field field : fields) {
+                if (field.hasPawn() &&
+                        field.getPawn().getLastPositionX() == lastPositionX &&
+                        field.getPawn().getLastPositionY() == lastPositionY) {
+                    return field.getPawn();
+                }
+            }
+        }
+        return null;
     }
 }

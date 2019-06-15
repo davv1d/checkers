@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node<T> {
-    private T date = null;
+    private T date;
     private Node<T> parent = null;
     private List<Node<T>> children = new ArrayList<>();
 
@@ -12,16 +12,12 @@ public class Node<T> {
         this.date = date;
     }
 
-    public Node(Node<T> node){
-        this.date = node.date;
-    }
-
     public void addChild(Node<T> date) {
         children.add(date);
         date.setParent(this);
     }
 
-    public boolean isLeafNode() {
+    boolean isLeafNode() {
         return children.isEmpty();
     }
 
@@ -31,7 +27,7 @@ public class Node<T> {
         }
     }
 
-    public void setParent(Node<T> parent) {
+    private void setParent(Node<T> parent) {
         this.parent = parent;
     }
 
@@ -43,11 +39,11 @@ public class Node<T> {
         return parent;
     }
 
-    public List<Node<T>> getChildren() {
+    List<Node<T>> getChildren() {
         return children;
     }
 
-    public boolean isRoot(){
+    public boolean isRoot() {
         return parent == null;
     }
 

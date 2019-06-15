@@ -1,7 +1,7 @@
 package com.kodilla.model.playerMoveCorrectness;
 
 import com.kodilla.model.boardBeaviour.Conditions;
-import com.kodilla.model.dataObject.CheckedMovement;
+import com.kodilla.model.dataObject.ModelData;
 import com.kodilla.model.elementsOfTheBoard.Field;
 import com.kodilla.model.elementsOfTheBoard.Pawn;
 import com.kodilla.model.elementsOfTheBoard.Position;
@@ -19,25 +19,26 @@ public class MovingThePiece {
     private List<MoveOfPawn> temporaryMove = new ArrayList<>();
     private int moveNumber = 0;
 
-    public CheckedMovement checkingTheCorrectnessOfTheMovement(int x, int y, Pawn pawn, Field[][] board) {
+    public ModelData checkingTheCorrectnessOfTheMovement(int x, int y, Pawn pawn, Field[][] board) {
         isEndOfRound = false;
         ItemsOfBoard items = new ItemsOfBoard(pawn, board, x, y);
         Position positionOfTheNextMove = new Position(x, y);
         return divisionOfPawnsDueToType(items, positionOfTheNextMove);
     }
 
-    private CheckedMovement divisionOfPawnsDueToType(ItemsOfBoard items, Position positionOfTheNextMove) {
-        if (items.getPawn().isBlack()) {// && isPlayerOne) {
+    private ModelData divisionOfPawnsDueToType(ItemsOfBoard items, Position positionOfTheNextMove) {
+        if (items.getPawn().isBlack()) {
             return testSwitch(items, positionOfTheNextMove, Calculate.getMaxMovesAmongBlack(items.getBoard()));
-        } else { // && !isPlayerOne) {
+        } else {
             return testSwitch(items, positionOfTheNextMove, Calculate.getMaxMovesAmongWhite(items.getBoard()));
         }
     }
 
-    private CheckedMovement testSwitch(ItemsOfBoard items, Position positionOfTheNextMove, List<MoveOfPawn> maxMovesAmongPawns) {
+    private ModelData testSwitch(ItemsOfBoard items, Position positionOfTheNextMove, List<MoveOfPawn> maxMovesAmongPawns) {
         switch (checkIfThereIsSimpleMoveOrKill(items, positionOfTheNextMove, maxMovesAmongPawns)) {
             case BACK:
-                return new CheckedMovement();
+            case NO_MOVEMENT:
+                return new ModelData();
             case FIRST_KILL:
                 return firstKillingFromSequence(items, positionOfTheNextMove, maxMovesAmongPawns);
             case ANOTHER_KILL:
@@ -46,12 +47,12 @@ public class MovingThePiece {
         return null;
     }
 
-    private CheckedMovement firstKillingFromSequence(ItemsOfBoard items, Position positionOfTheNextMove, List<MoveOfPawn> maxMovesAmongPawns) {
+    private ModelData firstKillingFromSequence(ItemsOfBoard items, Position positionOfTheNextMove, List<MoveOfPawn> maxMovesAmongPawns) {
         temporaryMove = takeThisPawnMovesIncludingNextPosition(positionOfTheNextMove, maxMovesAmongPawns, items.getPawn());
         return doTheKill(positionOfTheNextMove, items);
     }
 
-    private CheckedMovement doTheKill(Position position, ItemsOfBoard items) {
+    private ModelData doTheKill(Position position, ItemsOfBoard items) {
         List<Pawn> killedPawns = findKilledPawns(position);
         List<Position> positionsKilledPawns = new ArrayList<>();
         if (!killedPawns.isEmpty()) {
@@ -65,7 +66,7 @@ public class MovingThePiece {
             moveNumber = 0;
         }
         boolean doQueen = Conditions.doQueen(items.getPawn(), position.getY(), isEndOfRound);
-        return new CheckedMovement(isEndOfRound, true, positionsKilledPawns, doQueen);
+        return new ModelData(isEndOfRound, true, positionsKilledPawns, doQueen);
     }
 
     private int getLastMoveNumber() {
@@ -114,8 +115,7 @@ public class MovingThePiece {
                 return MovementOrKill.BACK;
             }
         } else {
-            System.out.println("no move");
-            return MovementOrKill.BACK;
+            return MovementOrKill.NO_MOVEMENT;
         }
     }
 

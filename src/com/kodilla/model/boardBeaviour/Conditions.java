@@ -25,8 +25,8 @@ public class Conditions {
 
     public static boolean doQueen(Pawn pawn, int nextY, boolean endOfRound) {
         return !pawn.isQueen() && endOfRound &&
-                (pawn.isBlack() && nextY == 7) ||
-                (!pawn.isBlack() && nextY == 0);
+                ((pawn.isBlack() && nextY == 7) ||
+                (!pawn.isBlack() && nextY == 0));
     }
 
 

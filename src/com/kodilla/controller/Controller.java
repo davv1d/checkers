@@ -1,8 +1,11 @@
 package com.kodilla.controller;
+
 import com.kodilla.model.dataObject.MoveData;
-import com.kodilla.model.dataObject.CheckedMovement;
+import com.kodilla.model.dataObject.ModelData;
 import com.kodilla.model.Model;
 import com.kodilla.view.CheckersApp;
+
+import java.util.function.Consumer;
 
 public class Controller {
     private CheckersApp view;
@@ -13,7 +16,7 @@ public class Controller {
         model = new Model();
     }
 
-    public void createStartBoard() {
+    private void createStartBoard() {
         view.paintFields(model.getDefaultSettings().getFieldsBoard());
         view.paintPawns(model.getDefaultSettings().getPawnsBoard());
         view.createSideMenu();
@@ -28,16 +31,37 @@ public class Controller {
         view.setDisablePawns(true, true);
     }
 
-    public void computerAndPlayer(MoveData moveData) {
-        CheckedMovement checkedMovement = model.checkPlayerMovement(moveData);
-        if (checkedMovement.isCorrect()) {
-            test(moveData, checkedMovement);
-            if (checkedMovement.isEndOfRound()) {
-                view.setWinLabel(model.isWin());
-                if(model.isWin().equals("")) {
-                    CheckedMovement computerCheckedMove = model.computerMovement();
-                    test(computerCheckedMove.getMoveData(), computerCheckedMove);
-                    view.setWinLabel(model.isWin());
+    private void actionInView(MoveData moveData, ModelData modelData) {
+        view.removeImageViewPawns(modelData.getPositionsKilledPawns(), modelData.getPawn().isBlack());
+        if (modelData.doQueen()) {
+            view.changePawnIntoAQueen(moveData.getX(), moveData.getY(), modelData.getPawn().isBlack());
+        }
+        view.move(moveData.getX(), moveData.getY(), moveData.getNextX(), moveData.getNextY());
+    }
+
+    public void createMainMenu() {
+        view.removeMainMenu();
+        createStartBoard();
+        view.setDisablePawns(true, true);
+    }
+
+    public void play(MoveData moveData, boolean twoPlayers) {
+        if (twoPlayers) {
+            makingTheMove(moveData, this::anotherPlayer);
+        } else {
+            makingTheMove(moveData, this::computerMove);
+        }
+    }
+
+    private void makingTheMove(MoveData moveData, Consumer<Boolean> playerOrComputer) {
+        ModelData modelData = model.checkPlayerMovement(moveData);
+        if (modelData.isTheRightMove()) {
+            actionInView(moveData, modelData);
+            if (modelData.isEndOfRound()) {
+                if (!modelData.isWinner()) {
+                    playerOrComputer.accept(modelData.getPawn().isBlack());
+                } else {
+                    view.winner(modelData.getWinner());
                 }
             }
         } else {
@@ -45,48 +69,19 @@ public class Controller {
         }
     }
 
-    private void test(MoveData moveData, CheckedMovement checkedMovement) {
-        view.removeImageViewPawns(checkedMovement.getPositionsKilledPawns(), checkedMovement.getPawn().isBlack());
-        if (checkedMovement.doQueen()) {
-            view.changePawnIntoAQueen(moveData.getX(), moveData.getY(), checkedMovement.getPawn().isBlack());
-        }
-        view.move(moveData.getX(), moveData.getY(), moveData.getNextX(), moveData.getNextY());
-    }
-
-    public void testMainMenu() {
-        view.removeMainMenu();
-        createStartBoard();
-        view.setDisablePawns(true, true);
-    }
-
-    public void doMove(MoveData moveData, boolean twoPlayers) {
-        if (twoPlayers) {
-            twoPlayers(moveData);
-        } else {
-            computerAndPlayer(moveData);
+    private void computerMove(boolean isBlack) {
+        ModelData computerCheckedMove = model.computerMovement();
+        actionInView(computerCheckedMove.getMoveData(), computerCheckedMove);
+        if (computerCheckedMove.isWinner()) {
+            view.winner(computerCheckedMove.getWinner());
         }
     }
 
-    private void twoPlayers(MoveData moveData) {
-        CheckedMovement checkedMovement = model.checkPlayerMovement(moveData);
-        if (checkedMovement.isCorrect()) {
-            test(moveData, checkedMovement);
-            if (checkedMovement.isEndOfRound()) {
-                view.changeStatus();
-                view.setDisablePawns(checkedMovement.getPawn().isBlack(), true);
-                view.setDisablePawns(!checkedMovement.getPawn().isBlack(), false);
-            }
-        } else {
-            view.move(moveData.getX(), moveData.getY(), moveData.getX(), moveData.getY());
-        }
-    }
+    private void anotherPlayer(boolean isBlack) {
+        view.changeStatus(isBlack);
+        view.setDisablePawns(isBlack, true);
+        view.setDisablePawns(!isBlack, false);
 
-    private void win() {
-        if (model.isWin().equals("")) {
-            view.setDisablePawns(true, true);
-            view.setDisablePawns(false, true);
-            view.setWinLabel(model.isWin());
-        }
     }
 
     public void backToMenu() {

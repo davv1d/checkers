@@ -1,4 +1,4 @@
-package com.kodilla.model.computerTest;
+package com.kodilla.model.computer;
 
 import com.kodilla.model.movementCalculation.MoveOfPawn;
 import com.kodilla.model.elementsOfTheBoard.Position;

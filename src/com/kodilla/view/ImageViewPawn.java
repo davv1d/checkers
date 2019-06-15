@@ -1,6 +1,4 @@
 package com.kodilla.view;
-
-import com.kodilla.view.CheckersApp;
 import javafx.scene.image.ImageView;
 
 public class ImageViewPawn extends ImageView {

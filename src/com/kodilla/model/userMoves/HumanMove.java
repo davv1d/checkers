@@ -1,25 +1,26 @@
 package com.kodilla.model.userMoves;
 
+import com.kodilla.model.boardBeaviour.ActionsOnTheBoard;
 import com.kodilla.model.elementsOfTheBoard.Pawn;
 import com.kodilla.model.dataObject.MoveData;
-import com.kodilla.model.dataObject.CheckedMovement;
-import com.kodilla.model.stateOfTheGame.Game;
+import com.kodilla.model.dataObject.ModelData;
+import com.kodilla.model.stateOfTheGame.MainBoard;
 import com.kodilla.model.playerMoveCorrectness.MovingThePiece;
 
 public class HumanMove extends PlayerMove {
 
     private MovingThePiece movingThePiece;
 
-    public HumanMove(Game game, MovingThePiece movingThePiece) {
-        super(game);
+    public HumanMove(MainBoard mainBoard, MovingThePiece movingThePiece) {
+        super(mainBoard);
         this.movingThePiece = movingThePiece;
     }
 
-    public CheckedMovement checkPlayerMove(MoveData moveData) {
-        Pawn pawn = game.findPawn(moveData.getX(), moveData.getY());
-        CheckedMovement checkedMovement = movingThePiece.checkingTheCorrectnessOfTheMovement(moveData.getNextX(), moveData.getNextY(), pawn, game.getGameBoard());
-        doAllBehaviour(moveData, pawn, checkedMovement);
-        checkedMovement.setPawn(pawn);
-        return checkedMovement;
+    public ModelData checkPlayerMove(MoveData moveData) {
+        Pawn pawn = ActionsOnTheBoard.findPawn(mainBoard.getGameBoard(),moveData.getX(), moveData.getY());
+        ModelData modelData = movingThePiece.checkingTheCorrectnessOfTheMovement(moveData.getNextX(), moveData.getNextY(), pawn, mainBoard.getGameBoard());
+        doAllBehaviour(moveData, pawn, modelData);
+        modelData.setPawn(pawn);
+        return modelData;
     }
 }
